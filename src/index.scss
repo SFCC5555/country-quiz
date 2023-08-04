@@ -1,0 +1,91 @@
+// Importing a Google Fonts font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+// Importing base styles, components and utilities from Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Setting box-sizing, margin, and padding for all elements in the document
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Color and font variables defined in the :root selector
+:root {
+    --main-font: 'Poppins', sans-serif;
+
+    --light-text-color:#F2F2F2;
+    --main-text-color: #6066D0;
+    --dark-text-color: #2F527B;
+    --correct-text-color: #60BF88;
+    --wrong-text-color: #EA8282;
+    --hover-text-color: #F9A826;
+
+
+    --correct-bg-color: #60BF88;
+    --wrong-bg-color: #EA8282;
+
+    --main-border-color: #6066D0;
+    --correct-border-color: #60BF88;
+    --wrong-border-color: #EA8282;
+
+    --hover-color: #F9A826;
+
+}
+
+// Generates text color classes for each type of color
+
+@each $color in 'light', 'main', 'dark', 'correct', 'wrong', 'hover' {
+    .#{$color}-text {
+        color: var(--#{$color}-text-color);
+    }
+}
+
+// Generates background color classes for each type of color
+
+@each $color in 'correct', 'wrong' {
+    .#{$color}-bg {
+        background-color: var(--#{$color}-bg-color);
+        color: white;
+    }
+} 
+
+// Generates border color classes for each type of color
+
+@each $color in 'main', 'correct', 'wrong' {
+    .#{$color}-border {
+        border: 2px solid var(--#{$color}-border-color);
+    }
+}  
+
+// General styles for the body and the element with the id "root of the document
+body {
+    height: 100%;
+    font-family: var(--main-font);
+}
+
+#root {
+    height: 100%;
+    min-height: 100svh; // Set the minimum height of the element as 100% of the visible small viewport height.
+    background-image: url('./assets/images/background.png');
+    background-size: 100%;
+}
+
+// Sets the minimum height of an element to 420 pixels.
+.min-height {
+    min-height: 420px;
+}
+
+
+// Styles for elements with hover qualities.
+.hover-border {
+    border: 2px solid var(--main-border-color);
+}
+
+.hover-border:hover {
+    background-color: var(--hover-color);
+    border-color: var(--hover-color);
+}

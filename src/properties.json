@@ -1,0 +1,31 @@
+[
+	{
+		"name":"capital",
+		"questions": [
+				"is the capital of",
+				"The capital of"
+		]
+	},
+	{
+		"name":"region",
+		"questions": [
+				"is the region of",
+				"The region of"
+		]
+	},
+	{
+		"name":"population",
+		"questions": [
+				"is the population of",
+				"The population of"
+		]
+	},
+	{
+		"name":"flag",
+		"questions": [
+				"is the flag of",
+				"The flag of"
+		]
+	}
+
+]
