@@ -4,7 +4,6 @@ import { Results } from './components/Results'
 import { ExternalLink } from './components/ExternalLink'
 import { Highscores } from './components/Highscores'
 
-
 function App() {
 
   return (
