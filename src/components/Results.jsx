@@ -3,6 +3,7 @@ import resultsImage from '../assets/images/undraw_winners_ao2o 2.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateScore } from '../redux/scoreSlice';
+import { updateGlobalHighscore } from '../utils/updateGlobalHighscore';
 
 const Results = () => {
   // Get the 'dispatch' function from the Redux store
@@ -36,6 +37,9 @@ const Results = () => {
             globalHighscore: { value: score.currentScore.value, name: inputValue },
           })
         );
+
+        updateGlobalHighscore({value: score.currentScore.value, name: inputValue})
+
       } else {
         // If the current score is not higher than the global highscore, update only the local highscore with the new name
         dispatch(
@@ -85,7 +89,7 @@ const Results = () => {
                 type='text'
                 value={inputValue}
                 onChange={handleChange}
-                maxLength="15"
+                maxLength="20"
                 className={`main-border rounded-md px-2 text-sm ${error && 'placeholder-red-500 wrong-border'}`}
                 placeholder='Enter your name'
               />

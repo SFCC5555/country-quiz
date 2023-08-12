@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateScore } from '../redux/scoreSlice'
 import { useSelector } from 'react-redux'
+import { fetchGlobalHighscore } from '../utils/fetchGlobalHighscore'
 
 const Quiz = () => {
 
@@ -48,10 +49,10 @@ const Quiz = () => {
   // Array of letters for displaying options (A, B, C, D)
   const letters = ['A', 'B', 'C', 'D'];
 
-  // Fetch data from the API once when the component mounts and set the score to zero
+  // Fetch data and the Global Highscore from the respective APIs once when the component mounts and set the score to zero
   useEffect(() => {
     fetchData(setData);
-    dispatch(updateScore({...score,currentScore:{value:0}}));
+    fetchGlobalHighscore(dispatch,score);
   }, []);
 
   const answer = (e) => {

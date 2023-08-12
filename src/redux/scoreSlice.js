@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+
 // Initial state of the 'score' slice, which holds information related to scores
 const initialState = {
   // Current player's score, initially set to 0
@@ -11,8 +12,8 @@ const initialState = {
     ? JSON.parse(localStorage.getItem('localHighscore'))
     : { value: 0, name: '' },
 
-  // Global highscore...
-  globalHighscore: { value: 0, name: '' },
+  // Default global highscore if the fetch is not successful
+  globalHighscore: { value: '', name: 'network error' },
 };
 
 export const scoreSlice = createSlice({
