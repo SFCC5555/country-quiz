@@ -13,7 +13,9 @@ const initialState = {
     : { value: 0, name: '' },
 
   // Default global highscore if the fetch is not successful
-  globalHighscore: { value: '', name: 'network error' },
+  globalHighscore: localStorage.getItem('localHighscore')
+  ? JSON.parse(localStorage.getItem('localHighscore'))
+  : { value: 0, name: '' }
 };
 
 export const scoreSlice = createSlice({

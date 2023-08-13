@@ -2,9 +2,10 @@ import { updateScore } from '../redux/scoreSlice'
 
 // Function to fetch global highscore from the server
 export const fetchGlobalHighscore = async (dispatch, score) => {
+    dispatch(updateScore({ ...score, currentScore:{value:0}}));
     try {
         // Sending a request to the specified URL
-        const response = await fetch('http://localhost:3000/api/v1/country-quiz-highscore');
+        const response = await fetch('https://country-quiz-si4d.onrender.com/api/v1/country-quiz-highscore');
 
         // Checking if the response is not successful (status not OK)
         if (!response.ok) {

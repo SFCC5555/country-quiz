@@ -10,7 +10,7 @@ export const updateGlobalHighscore = async (patchData) => {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/v1/country-quiz-highscore', requestOptions); // Perform the PATCH request using fetch
+        const response = await fetch('https://country-quiz-si4d.onrender.com/api/v1/country-quiz-highscore', requestOptions); // Perform the PATCH request using fetch
 
         if (!response.ok) {
             throw new Error('Network response was not successful');
